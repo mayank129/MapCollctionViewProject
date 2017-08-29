@@ -14,12 +14,13 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var button: UIButton!
     var delegate:ViewController?
     var mapDelegate:MapInfoDelegate?
-  
+    var index:IndexPath?
     @IBAction func changeLocation(_ sender: UIButton) {
         let path = sender.tag
         var currentCoordinates:CLLocationCoordinate2D?
         let goingLocation = delegate?.locationCoordinates[path]
         var locationName: String?
+        delegate?.collectionView.bringSubview(toFront: button)
         for (key) in (goingLocation?.keys)!
         {
             locationName = key
@@ -32,7 +33,9 @@ class CollectionViewCell: UICollectionViewCell {
         {
             mapDelegate.updateTheMap(locationName: locationName!, coordinates: currentCoordinates!)
         }
+        delegate?.collectionView.scrollToItem(at: index!, at: .centeredHorizontally, animated: true)
         print("tag:\(path)")
+ 
     }
     
 }

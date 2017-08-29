@@ -33,10 +33,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     var buttonColor = [UIColor.red , UIColor.black, UIColor.yellow , UIColor.green,UIColor.red , UIColor.black, UIColor.yellow , UIColor.green,UIColor.red , UIColor.black, UIColor.yellow , UIColor.green]
     
     override func viewDidLoad() {
-        self.collectionView.allowsSelection = true
         super.viewDidLoad()
-       //((UICollectionViewFlowLayout)(self.collectionView.collectionViewLayout).mi
-//        ((UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout).minimumLineSpacing = 1000.0f
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         let cood:CLLocationCoordinate2D = CLLocationCoordinate2DMake(12.9574508, 77.64157069999999)
@@ -54,7 +51,18 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         let pinLocation = PinLocation(title: locationName,coordinate: coordinates)
         mapView.addAnnotation(pinLocation)
     }
-    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int{
+        return 2
+    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+//        
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.sectionInset = UIEdgeInsets(top: 6, left: 4, bottom: 6, right: 4)
+//        layout.minimumInteritemSpacing = 04
+//        layout.minimumLineSpacing = 04
+//        layout.invalidateLayout()
+//        return CGSize(width: ((self.view.frame.width/2) - 6), height: ((self.view.frame.width / 2) - 6))
+//    }
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return locationCoordinates.count
     }
@@ -65,6 +73,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         //put the Delgate HERE in the place where the cell is instantiated so that there is a connection back
         cell.mapDelegate = self
         cell.delegate = self
+        cell.index = indexPath
         cell.button.backgroundColor = buttonColor[indexPath.item]
         cell.button.tag = indexPath.row
         let goingLocation = locationCoordinates[indexPath.item]
@@ -82,6 +91,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 //        cell.name[indexPath.row] = locationName!
 //        print(indexPath.item)
 //        print("tag of cell =\(cell.tag)")
+//        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         cell.button.setTitle(locationName, for: UIControlState.normal)
         return cell
     }
