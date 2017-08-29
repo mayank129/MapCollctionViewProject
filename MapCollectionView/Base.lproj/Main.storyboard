@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi0-0V-LlT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-Qy-Qpj">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="B3p-Qy-Qpj" firstAttribute="leading" secondItem="Yi0-0V-LlT" secondAttribute="leading" id="3P3-LY-UNt"/>
+                                    <constraint firstAttribute="bottom" secondItem="B3p-Qy-Qpj" secondAttribute="bottom" id="3xW-kS-n6a"/>
+                                    <constraint firstAttribute="trailing" secondItem="B3p-Qy-Qpj" secondAttribute="trailing" id="IO7-oU-uVE"/>
+                                    <constraint firstItem="B3p-Qy-Qpj" firstAttribute="height" secondItem="Yi0-0V-LlT" secondAttribute="height" id="Ozr-I0-DX4"/>
+                                    <constraint firstItem="B3p-Qy-Qpj" firstAttribute="width" secondItem="Yi0-0V-LlT" secondAttribute="width" id="QyD-Rq-rQZ"/>
+                                    <constraint firstItem="B3p-Qy-Qpj" firstAttribute="top" secondItem="Yi0-0V-LlT" secondAttribute="top" id="gOU-by-7Pq"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3d7-ba-ZhJ">
+                                <rect key="frame" x="0.0" y="335.5" width="320" height="111"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IbS-WG-1kJ">
+                                    <size key="itemSize" width="105" height="96"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="AWc-rv-Waf" customClass="CollectionViewCell" customModule="MapCollectionView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="7.5" width="105" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp7-ib-PT0">
+                                                    <rect key="frame" x="12" y="16" width="81" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="changeLocation:" destination="AWc-rv-Waf" eventType="touchUpInside" id="86r-vz-UJA"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="button" destination="Zp7-ib-PT0" id="5A6-yu-cAJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3d7-ba-ZhJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="1d0-92-af6"/>
+                            <constraint firstItem="Yi0-0V-LlT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="6ER-Bp-Ybt"/>
+                            <constraint firstItem="3d7-ba-ZhJ" firstAttribute="top" secondItem="B3p-Qy-Qpj" secondAttribute="bottom" constant="95.5" id="9s2-Yd-DEQ"/>
+                            <constraint firstItem="3d7-ba-ZhJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.230885" id="FHT-zN-UgI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yi0-0V-LlT" secondAttribute="trailing" constant="-16" id="Y8Y-iy-BxI"/>
+                            <constraint firstItem="Yi0-0V-LlT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="idV-3X-jXw"/>
+                            <constraint firstItem="Yi0-0V-LlT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="kJI-hY-LFQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3d7-ba-ZhJ" secondAttribute="trailing" constant="-16" id="rge-Hz-zRL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="3d7-ba-ZhJ" id="VAv-Hr-0ay"/>
+                        <outlet property="mapView" destination="B3p-Qy-Qpj" id="xgX-wT-V2d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2773.5999999999999" y="-2372.5637181409297"/>
+        </scene>
+    </scenes>
+</document>
